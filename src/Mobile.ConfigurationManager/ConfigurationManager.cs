@@ -45,7 +45,7 @@ namespace Mobile.ConfigurationManager
             private set => _connectionStrings = value;
         }
 
-        protected static void Init(StreamReader streamReader)
+        private static void InitInternal(TextReader streamReader)
         {
             using (var reader = XmlReader.Create(streamReader))
             {
@@ -78,19 +78,12 @@ namespace Mobile.ConfigurationManager
             item?.Attribute(KEY)?.Value,
             item?.Attribute(VALUE)?.Value);
 
-        protected static void InitInternal(List<KeyValuePair<string, string>> keys, Dictionary<string, ConnectionStringSettings> conStr)
-        {
-            AppSettings = new NameValueCollection(keys);
-            ConnectionStrings = conStr != null
-                ? new ReadOnlyDictionary<string, ConnectionStringSettings>(conStr)
-                : new ReadOnlyDictionary<string, ConnectionStringSettings>(new Dictionary<string, ConnectionStringSettings>());
-        }
-
         private static void EnsureInitialized()
         {
             if (_initialized) return;
             
-            Init();
+            // if the user hasn't specified their own initialization, we will initialize with defaults.
+            Init(); 
             _initialized = true;
         }
     }

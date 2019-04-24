@@ -7,7 +7,7 @@ namespace Mobile.ConfigurationManager
         public static void Init(string config = "Assets/App.config")
         {
             using (var stream = new StreamReader(config))
-                Init(stream);
+                InitInternal(stream);
         }
     }
 }
