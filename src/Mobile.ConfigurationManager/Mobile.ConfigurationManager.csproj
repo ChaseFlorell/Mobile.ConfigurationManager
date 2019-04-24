@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard1.3;netstandard2.0;Xamarin.iOS10;MonoAndroid81;MonoAndroid90;net45</TargetFrameworks>
+        <LangVersion>latest</LangVersion>
+        <AssemblyName>Mobile.ConfigurationManager</AssemblyName>
+        <PackageId>Mobile.ConfigurationManager</PackageId>
+
+        <Summary>ConfigurationManager for mobile applications (iOS &amp; Android)</Summary>
+        <Description>ConfigurationManager for mobile applications (iOS &amp; Android)</Description>
+        <Title>Mobile ConfigurationManager</Title>
+
+        <PackOnBuild>true</PackOnBuild>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GenerateProjectSpecificOutputFolder>true</GenerateProjectSpecificOutputFolder>
+        <PackageOutputDir>$(OutputPath)</PackageOutputDir>
+
+        <Owners>Chase Florell</Owners>
+        <Authors>Chase Florell</Authors>
+        <PackageIconUrl> </PackageIconUrl>
+        <NeutralLanguage>en</NeutralLanguage>
+
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+        <Version>1.0.0</Version>
+        <PackageVersion>$(Version)$(VersionSuffix)</PackageVersion>
+        <IncludeSymbols>true</IncludeSymbols>
+
+        <RepositoryUrl>https://github.com/ChaseFlorell/Mobile.ConfigurationManager</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        
+        <PackageTags>netstandard, dotnet, .net, config, config manager, configurationmanager, configuration manager</PackageTags>
+        <Copyright>©2019 FloMedia Group Inc. All rights reserved.</Copyright>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="MSBuild.Sdk.Extras" Version="1.6.68" PrivateAssets="All" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="System.Xml.Linq" />
+    </ItemGroup>
+    
+    <Import Project="..\Mobile.ConfigurationManager.Droid\Mobile.ConfigurationManager.Droid.projitems" Label="Droid" Condition="$(TargetFramework.StartsWith('MonoAndroid'))" />
+    <Import Project="..\Mobile.ConfigurationManager.Touch\Mobile.ConfigurationManager.Touch.projitems" Label="Touch" Condition="$(TargetFramework.StartsWith('Xamarin.iOS'))" />
+    <Import Project="..\Mobile.ConfigurationManager.Abstractions\Mobile.ConfigurationManager.Abstractions.projitems" Label="NetStandard" Condition="$(TargetFramework.StartsWith('netstandard'))" />
+    <Import Project="..\Mobile.ConfigurationManager.NetFull\Mobile.ConfigurationManager.NetFull.projitems" Label="NetFull" Condition="$(TargetFramework.StartsWith('net')) AND !$(TargetFramework.StartsWith('netstandard'))" />
+    <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+    
+</Project>

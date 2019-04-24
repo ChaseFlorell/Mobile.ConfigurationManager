@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mobile.ConfigurationManager", "src\Mobile.ConfigurationManager\Mobile.ConfigurationManager.csproj", "{90516487-D0E6-4154-8CEE-7E7173A55E61}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Mobile.ConfigurationManager.Droid", "src\Mobile.ConfigurationManager.Droid\Mobile.ConfigurationManager.Droid.shproj", "{5E29F8CB-0305-4566-8C29-461FB8FD1371}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Mobile.ConfigurationManager.Touch", "src\Mobile.ConfigurationManager.Touch\Mobile.ConfigurationManager.Touch.shproj", "{CF0C007E-2121-47A2-B01C-5B0B200E9205}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Mobile.ConfigurationManager.NetFull", "src\Mobile.ConfigurationManager.NetFull\Mobile.ConfigurationManager.NetFull.shproj", "{EE61B570-FA60-46CF-8B8C-AE62C4B05FBB}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Mobile.ConfigurationManager.Abstractions", "src\Mobile.ConfigurationManager.Abstractions\Mobile.ConfigurationManager.Abstractions.shproj", "{5B31FD27-E764-4E5C-83FA-CEB1AC8C7761}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90516487-D0E6-4154-8CEE-7E7173A55E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90516487-D0E6-4154-8CEE-7E7173A55E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90516487-D0E6-4154-8CEE-7E7173A55E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90516487-D0E6-4154-8CEE-7E7173A55E61}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
