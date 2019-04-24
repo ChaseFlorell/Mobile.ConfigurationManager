@@ -31,8 +31,8 @@
 
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         
-        <PackageTags>netstandard, dotnet, .net, config, config manager, configurationmanager, configuration manager</PackageTags>
-        <Copyright>©2019 FloMedia Group Inc. All rights reserved.</Copyright>
+        <PackageTags>config, configuration, manager, configurationmanager, xamarin, monotouch, monodroid, xamarin.forms, ios, android</PackageTags>
+        <Copyright>© 2019 FloMedia Group Inc. All rights reserved.</Copyright>
     </PropertyGroup>
     
     <ItemGroup>
