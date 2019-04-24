@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard1.3;netstandard2.0;Xamarin.iOS10;MonoAndroid81;MonoAndroid90;net45</TargetFrameworks>
+        <TargetFrameworks>netstandard1.0;netstandard2.0;Xamarin.iOS10;MonoAndroid81;MonoAndroid90;net45;portable-net45+win8+wpa81+wp8</TargetFrameworks>
         <LangVersion>latest</LangVersion>
         <AssemblyName>Mobile.ConfigurationManager</AssemblyName>
         <PackageId>Mobile.ConfigurationManager</PackageId>
@@ -33,6 +33,17 @@
         
         <PackageTags>config, configuration, manager, configurationmanager, xamarin, monotouch, monodroid, xamarin.forms, ios, android</PackageTags>
         <Copyright>© 2019 FloMedia Group Inc. All rights reserved.</Copyright>
+
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)' == 'portable-net45+win8+wpa81+wp8'">
+        <TargetFrameworkIdentifier>.NETPortable</TargetFrameworkIdentifier>
+        <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+        <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+        <NugetTargetMoniker>.NETPortable,Version=v0.0,Profile=Profile259</NugetTargetMoniker>
+        <LanguageTargets>$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets</LanguageTargets>
     </PropertyGroup>
     
     <ItemGroup>
@@ -45,8 +56,10 @@
     
     <Import Project="..\Mobile.ConfigurationManager.Droid\Mobile.ConfigurationManager.Droid.projitems" Label="Droid" Condition="$(TargetFramework.StartsWith('MonoAndroid'))" />
     <Import Project="..\Mobile.ConfigurationManager.Touch\Mobile.ConfigurationManager.Touch.projitems" Label="Touch" Condition="$(TargetFramework.StartsWith('Xamarin.iOS'))" />
-    <Import Project="..\Mobile.ConfigurationManager.Abstractions\Mobile.ConfigurationManager.Abstractions.projitems" Label="NetStandard" Condition="$(TargetFramework.StartsWith('netstandard'))" />
     <Import Project="..\Mobile.ConfigurationManager.NetFull\Mobile.ConfigurationManager.NetFull.projitems" Label="NetFull" Condition="$(TargetFramework.StartsWith('net')) AND !$(TargetFramework.StartsWith('netstandard'))" />
+    
+    <!-- portable/shared/standard will not have an initialization implementation but is still supported for user's cross platform code. -->
+    <Import Project="..\Mobile.ConfigurationManager.Abstractions\Mobile.ConfigurationManager.Abstractions.projitems" Label="NetStandard" Condition="$(TargetFramework.StartsWith('netstandard')) OR $(TargetFramework.StartsWith('portable'))" />
     <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
     
 </Project>
