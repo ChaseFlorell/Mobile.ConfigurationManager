@@ -2,7 +2,7 @@
 
 namespace Mobile.ConfigurationManager
 {
-    public partial class ConfigurationManagerLight
+    public partial class ConfigurationManager
     {
         public static void Init(string config = "") => throw new NotImplementedException();
     }

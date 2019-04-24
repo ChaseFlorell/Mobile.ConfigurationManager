@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace Mobile.ConfigurationManager
 {
-    public partial class ConfigurationManagerLight
+    public partial class ConfigurationManager
     {
         private static bool _initialized;
         private static ReadOnlyDictionary<string, ConnectionStringSettings> _connectionStrings;
@@ -23,7 +23,7 @@ namespace Mobile.ConfigurationManager
         private const string VALUE = "value";
         // ReSharper enable InconsistentNaming
 
-        private ConfigurationManagerLight() { /* Can't construct this, static access only. */}
+        private ConfigurationManager() { /* Can't construct this, static access only. */}
 
         public static NameValueCollection AppSettings
         {

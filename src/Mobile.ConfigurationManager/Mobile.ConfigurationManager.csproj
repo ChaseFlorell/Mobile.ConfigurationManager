@@ -28,13 +28,13 @@
 
         <RepositoryUrl>https://github.com/ChaseFlorell/Mobile.ConfigurationManager</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        
-        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         
         <PackageTags>netstandard, dotnet, .net, config, config manager, configurationmanager, configuration manager</PackageTags>
         <Copyright>©2019 FloMedia Group Inc. All rights reserved.</Copyright>
     </PropertyGroup>
-
+    
     <ItemGroup>
         <PackageReference Include="MSBuild.Sdk.Extras" Version="1.6.68" PrivateAssets="All" />
     </ItemGroup>
